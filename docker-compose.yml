@@ -1,15 +1,15 @@
 services:
-#  app_spring:
-#    build: .
-#    container_name: app_spring
-#    ports:
-#      - "8080:8080"
-#    env_file:
-#      - .env
-#    networks:
-#      - app_network
-#    depends_on:
-#      - db_api
+  app_spring:
+    build: .
+    container_name: app_spring
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    networks:
+      - app_network
+    depends_on:
+      - db_api
 
   db_api:
     image: postgres:13
