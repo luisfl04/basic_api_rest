@@ -1,9 +1,39 @@
 services:
-  app_spring:
-    build: .
-    container_name: app_spring
+#  app_spring:
+#    build: .
+#    container_name: app_spring
+#    ports:
+#      - "8080:8080"
+#    env_file:
+#      - .env
+#    networks:
+#      - app_network
+#    depends_on:
+#      - db_api
+
+  db_api:
+    image: postgres:13
+    restart: always
     ports:
-      - "8080:8080"
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=db_api_spring
+      - POSTGRES_USER=db_api_user
+      - POSTGRES_PASSWORD=Mppi2938@
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  pg_admin:
+    image: elestio/pgadmin:REL-9_8
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: Mppi2938
+      PGADMIN_LISTEN_PORT: 5431
+    ports:
+      - 5431:5431
     networks:
       - app_network
 
@@ -11,3 +41,6 @@ services:
 networks:
   app_network:
     driver: bridge
+
+volumes:
+  postgres_data:

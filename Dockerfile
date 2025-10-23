@@ -19,7 +19,7 @@ RUN mvn package -DskipTests
 # ********************************* EXECUTANDO PACOTE *********************************************
 
 
-# Imagem leve, apenas com jre
+# Imagem para execução do aplicativo
 FROM openjdk:17-jdk-slim
 
 # Diretório de trabalho
