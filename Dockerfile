@@ -31,7 +31,7 @@ COPY --from=build /app/target/basic_api_rest-1.0-SNAPSHOT.jar app.jar
 # Definindo porta para acesso à aplicação:
 EXPOSE 8080
 
-# Executando pacote:
+# Definindo comando de execução do container:
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 
