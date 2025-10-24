@@ -28,7 +28,7 @@ class EmployeeController {
         this.assembler = modelAssembler;
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/employees1")
     CollectionModel<EntityModel<Employee>> getAll(){
         List<EntityModel<Employee>> employees = repository.findAll().stream().map(
                 assembler::toModel

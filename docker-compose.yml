@@ -6,6 +6,8 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    volumes:
+      - ./src:/app/src
     depends_on:
       - db_api
 
@@ -30,7 +32,6 @@ services:
       PGADMIN_LISTEN_PORT: 5431
     ports:
       - 5431:5431
-
 
 volumes:
   postgres_data:
